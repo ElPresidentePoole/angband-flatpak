@@ -11,8 +11,8 @@ modules:
       - make -j$(nproc)
       - make install
       - mkdir -p /app/share/applications/
-      - install ./org.angband.Angband.curses.desktop /app/share/applications/
       - install ./org.angband.Angband.sdl2.desktop /app/share/applications/
+      - install ./org.angband.Angband.curses.desktop /app/share/applications/
       - install ./org.angband.Angband.x11.desktop /app/share/applications/
     sources:
       - type: archive

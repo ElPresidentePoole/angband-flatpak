@@ -4,5 +4,5 @@ Exec=angband -mgcu
 Icon=angband
 Comment=A roguelike dungeon exploration game based on the books of J.R.R.Tolkien
 Type=Application
-Terminal=yes
+Terminal=true
 Categories=Game;RolePlaying;
