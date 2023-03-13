@@ -1,0 +1,28 @@
+app-id: org.angband.Angband
+runtime: org.freedesktop.Platform
+runtime-version: '22.08'
+sdk: org.freedesktop.Sdk
+command: angband
+modules:
+  - name: angband
+    buildsystem: simple
+    build-commands:
+      - ./configure --prefix=/app --bindir=/app/bin/ --enable-sdl2
+      - make -j$(nproc)
+      - make install
+      - mkdir -p /app/share/applications/
+      - install ./org.angband.Angband.curses.desktop /app/share/applications/
+      - install ./org.angband.Angband.sdl2.desktop /app/share/applications/
+      - install ./org.angband.Angband.x11.desktop /app/share/applications/
+    sources:
+      - type: archive
+        url: https://github.com/angband/angband/releases/download/4.2.4/Angband-4.2.4.tar.gz
+        sha256: a07c78c1dd05e48ddbe4d8ef5d1880fcdeab55fd05f1336d9cba5dd110b15ff3
+      - type: dir
+        path: ./desktop
+finish-args:
+  - --socket=wayland
+  - --share=ipc
+  - --socket=x11
+  - --socket=pulseaudio
+  - --device=dri
